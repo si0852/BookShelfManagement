@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -66,10 +68,16 @@ public class BookShelfTest {
     }
 
     // 책장 삭제 테스트
+    @Test
+    void 책장_삭제_테스트() {
+        Optional<Bookshelf> deleteShelf = bookshelfRepository.findBybookShelfName("역사 책장");
+        if(deleteShelf.isPresent())bookshelfRepository.delete(deleteShelf.get());
 
-    // 책장 조회 by id
+        Optional<Bookshelf> findShelf = deleteShelf.isPresent() ? bookshelfRepository.findById(deleteShelf.get().getId()) : null;
 
-    // 책장 조회 by name
+
+        assertEquals(null, findShelf);
+    }
 
     // 모든 책장 조회
 }
