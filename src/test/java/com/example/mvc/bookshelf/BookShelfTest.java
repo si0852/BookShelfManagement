@@ -54,7 +54,10 @@ public class BookShelfTest {
         bookshelfRepository.save(bookshelf);
 
         Bookshelf saveShelf = bookshelfRepository.findBybookShelfName(bookshelf.getBookShelfName()).get();
-        assertEquals(bookshelf.getBookShelfName(), saveShelf.getBookShelfName());
+
+        saveShelf.setBookShelfName("경제개발 책장");
+        saveShelf.setFloor(6);
+        assertEquals(bookshelf.getId(), saveShelf.getId());
     }
 
     // 책장 삭제 테스트
