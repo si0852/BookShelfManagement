@@ -44,7 +44,18 @@ public class BookShelfTest {
     }
 
 
-    // 책장 수정 테스트
+    // 책장 수정 테스트 (객체 생성 -> save -> 객체 수정 -> save)
+    @Test
+    void 책장_수정_테스트(){
+        Bookshelf bookshelf = new Bookshelf();
+        bookshelf.setBookShelfName("자기개발 책장");
+        bookshelf.setFloor(5);
+
+        bookshelfRepository.save(bookshelf);
+
+        Bookshelf saveShelf = bookshelfRepository.findBybookShelfName(bookshelf.getBookShelfName()).get();
+        assertEquals(bookshelf.getBookShelfName(), saveShelf.getBookShelfName());
+    }
 
     // 책장 삭제 테스트
 
