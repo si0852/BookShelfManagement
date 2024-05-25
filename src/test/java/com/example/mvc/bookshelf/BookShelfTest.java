@@ -57,7 +57,12 @@ public class BookShelfTest {
 
         saveShelf.setBookShelfName("경제개발 책장");
         saveShelf.setFloor(6);
-        assertEquals(bookshelf.getId(), saveShelf.getId());
+
+        bookshelfRepository.save(saveShelf);
+
+        Bookshelf updateShelf = bookshelfRepository.findById(saveShelf.getId()).get();
+
+        assertNotEquals(bookshelf.getBookShelfName(), updateShelf.getBookShelfName());
     }
 
     // 책장 삭제 테스트
