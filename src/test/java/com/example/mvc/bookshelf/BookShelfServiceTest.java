@@ -19,23 +19,35 @@ public class BookShelfServiceTest {
     @Autowired
     BookShelfService bookShelfService;
 
+    @Autowired
+    BookshelfRepository repository;
+
     Bookshelf saveBookShelf;
 
     @BeforeEach
     void add_bookshelf() {
         saveBookShelf = new Bookshelf();
         saveBookShelf.setFloor(10);
-        saveBookShelf.setBookShelfName("운동 서적");
+        saveBookShelf.setBookShelfName("bookName");
+
+        repository.save(saveBookShelf);
     }
 
     // 책장 추가 테스트
-    // 로직: 요청한 데이터를 받는다.-> 데이터가 존재하는지 확인 -> 존재한다면 Error -> 존재안한다면 insert -> 결과값에 따라
+    // 로직: 요청한 데이터를 받는다.-> 데이터가 존재하는지 확인 -> 존재한다면 Error(ㅜㅕㅣㅣ -> 존재안한다면 insert -> 결과값에 따라
 
     @Test
-    void 책장_추가_테스트_데이터_존재여부() {
+    void 책장_추가_테스트_데이터_존재여부o() {
         Integer result = bookShelfService.saveBookShelf(saveBookShelf);
         assertEquals(null, result);
     }
+
+//    @Test
+//    void 책장_추가_테스트_데이터_존재여부x() {
+//        saveBookShelf.setBookShelfName();
+//        Integer result = bookShelfService.saveBookShelf(saveBookShelf);
+//        assertEquals(null, result);
+//    }
 }
 
 
