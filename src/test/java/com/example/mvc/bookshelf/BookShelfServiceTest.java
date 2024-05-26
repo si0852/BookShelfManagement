@@ -48,6 +48,14 @@ public class BookShelfServiceTest {
         Integer result = bookShelfService.saveBookShelf(saveBookShelf);
         assertEquals(1, result);
     }
+
+    @Test
+    void 책장_추가_테스트_데이터_() {
+        saveBookShelf.setBookShelfName("history");
+        saveBookShelf.setFloor(5);
+        Integer result = bookShelfService.saveBookShelf(saveBookShelf);
+        assertEquals(1, result);
+    }
 }
 
 

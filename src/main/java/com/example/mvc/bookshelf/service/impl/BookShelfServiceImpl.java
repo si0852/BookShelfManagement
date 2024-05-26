@@ -20,6 +20,6 @@ public class BookShelfServiceImpl implements BookShelfService {
     public Integer saveBookShelf(Bookshelf bookshelf) {
         Optional<Bookshelf> findData = bookshelfRepository.findBybookShelfName(bookshelf.getBookShelfName());
         if(findData.isPresent()) return null;
-        return 1;
+        return bookshelfRepository.save(bookshelf) != null ? 1: 0;
     }
 }
