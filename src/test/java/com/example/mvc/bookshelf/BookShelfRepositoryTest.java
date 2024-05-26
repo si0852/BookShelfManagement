@@ -2,7 +2,6 @@ package com.example.mvc.bookshelf;
 
 import com.example.mvc.bookshelf.domain.Bookshelf;
 import com.example.mvc.bookshelf.repository.BookshelfRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +12,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class BookShelfTest {
+public class BookShelfRepositoryTest {
 
     @Autowired
     BookshelfRepository bookshelfRepository;
@@ -78,6 +77,4 @@ public class BookShelfTest {
 
         assertEquals(null, findShelf);
     }
-
-    // 모든 책장 조회
 }

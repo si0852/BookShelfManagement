@@ -2,7 +2,6 @@ package com.example.mvc.repository;
 
 import com.example.mvc.domain.Member;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface MemberRepository {
