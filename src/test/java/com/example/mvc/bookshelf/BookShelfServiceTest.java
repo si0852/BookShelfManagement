@@ -42,12 +42,12 @@ public class BookShelfServiceTest {
         assertEquals(null, result);
     }
 
-//    @Test
-//    void 책장_추가_테스트_데이터_존재여부x() {
-//        saveBookShelf.setBookShelfName();
-//        Integer result = bookShelfService.saveBookShelf(saveBookShelf);
-//        assertEquals(null, result);
-//    }
+    @Test
+    void 책장_추가_테스트_데이터_존재여부x() {
+        saveBookShelf.setBookShelfName("test");
+        Integer result = bookShelfService.saveBookShelf(saveBookShelf);
+        assertEquals(1, result);
+    }
 }
 
 
